@@ -1,14 +1,15 @@
+'use strict';
+
 define([
   'jquery',
   'underscore',
   'backbone',
-  'list/list'
-], function($, _, Backbone, list) {
+  'list/router',
+  'list/view'
+], function($, _, Backbone, router, view) {
   
   function initialize() {
-    list.initialize();
-
-    Backbone.history.start();
+    router.initialize();
   }
 
   return {
