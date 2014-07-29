@@ -2,12 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'list/list'
-], function($, _, Backbone, list) {
-  
-  function initialize() {
-    list.initialize();
+  './routes',
+  'collections/projects'
+], function($, _, Backbone, routes) {
 
+  function initialize() {
+    routes.initialize(); 
     Backbone.history.start();
   }
 

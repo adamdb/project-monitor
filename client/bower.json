@@ -6,7 +6,8 @@
     "jquery": "~1.11.0",
     "backbone": "~1.1.2",
     "underscore": "~1.6.0",
-    "requirejs": "~2.1.14"
+    "requirejs": "~2.1.14",
+    "text": "requirejs/text#~2.0.12"
   },
   "devDependencies": {}
 }
