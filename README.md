@@ -1,4 +1,4 @@
 project-monitor
 ===============
 
-In browser project monitoring of continuous integration servers.
+Browser client and server for real-time project monitoring through continuous integration servers.
