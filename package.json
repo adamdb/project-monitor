@@ -1,0 +1,15 @@
+{
+  "name": "project-monitor-server",
+  "version": "0.0.0",
+  "description": "Middleware for the in-browser project monitoring client.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Balchunas",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.7.2",
+    "socket.io": "^1.0.6"
+  }
+}

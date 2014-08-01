@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
-    <script data-main="scripts/main" src="../bower_components/requirejs/require.js"></script>
   </head>
   <body>
     <div class="navbar navbar-default">
@@ -43,5 +41,13 @@
       <div class="row" id="project-list">
       </div>
     </div>
+
+    <!-- build:js scripts/plugins.js --> 
+    <script src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
