@@ -1,14 +1,19 @@
+'use strict';
+
 define([
   'jquery',
   'underscore',
   'backbone',
   './routes',
-  'collections/projects'
-], function($, _, Backbone, routes) {
+  './socket',
+  './models/model'
+], function($, _, Backbone, routes, Socket, model) {
 
   function initialize() {
     routes.initialize(); 
     Backbone.history.start();
+
+    var socket = new Socket(model.server);
   }
 
   return {
