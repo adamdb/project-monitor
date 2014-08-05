@@ -7,13 +7,13 @@ define([
   './routes',
   './socket',
   './models/model'
-], function($, _, Backbone, routes, Socket, model) {
+], function($, _, Backbone, routes, Socket, appModel, ProjectCollection) {
 
   function initialize() {
     routes.initialize(); 
     Backbone.history.start();
 
-    var socket = new Socket(model.server);
+    var socket = new Socket(appModel.SERVER + ':' + appModel.SERVER_PORT);
   }
 
   return {

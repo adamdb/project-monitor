@@ -9,7 +9,10 @@ define([
 ], function($, _, Backbone, ProjectCollection, template) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
-    button: $('#add-project'), 
+    $newProjectButton: $('#new-project-btn'),
+    $newProjectModal: $('#new-project-modal'),
+    $addProjectButton: $('#add-project-btn'),
+    $projectNameInput: $('#project-name-input'),
 
     initialize: function() {
       var that = this;
@@ -17,13 +20,23 @@ define([
       this.collection = new ProjectCollection();
       this.listenTo(this.collection, 'add remove', this.render);
       
-      this.button.click(function() {
-        that.addProject();
+      this.$newProjectButton.click(function() {
+        that.displayModal();
+      });
+
+      this.$addProjectButton.click(function() {
+        var $projectNameInput = $('#project-name-input');
+        that.addProject($projectNameInput.val());
       });
     },
 
-    addProject: function() {
-      this.collection.add({title: 'Project!'});
+    displayModal: function() {
+      this.$newProjectModal.modal('show');
+    },
+
+    addProject: function(name) {
+      this.collection.create({name: name});
+      this.$newProjectModal.modal('hide');
     },
 
     render: function() {

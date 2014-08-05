@@ -10,8 +10,7 @@ define([
   function initialize() {
     var Router = Backbone.Router.extend({
       routes: {
-        'list': 'list',
-        'new': 'new'
+        '': 'list'
       }
     });
 
@@ -20,9 +19,6 @@ define([
     router.on('route:list', function(actions) {
       var projectList = new ProjectList();
       projectList.render();  
-    });
-
-    router.on('route:new', function(actions) {
     });
   }
 
