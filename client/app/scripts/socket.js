@@ -5,8 +5,16 @@ define(['socketioclient'], function(io) {
     socket.on('connect', function() {
       console.log('connected');
     
-      socket.on('event', function(data) {
+      socket.on('STARTED', function(data) {
         console.log(data); 
+      });
+
+      socket.on('COMPLETED', function(data) {
+        console.log(data);
+      });
+
+      socket.on('FINALIZED', function(data) {
+        console.log(data)
       });
     });
   }
