@@ -5,8 +5,9 @@ define([
   'underscore',
   'backbone',
   'collections/projects',
-  'text!list/template.html'
-], function($, _, Backbone, ProjectCollection, template) {
+  'text!list/template.html',
+  './events'
+], function($, _, Backbone, ProjectCollection, template, events) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
     $newProjectButton: $('#new-project-btn'),
@@ -27,6 +28,10 @@ define([
       this.$addProjectButton.click(function() {
         var $projectNameInput = $('#project-name-input');
         that.addProject($projectNameInput.val());
+      });
+
+      events.on('build-started', function(msg) {
+        console.log('BUILD STARTED: ' + msg);
       });
     },
 
