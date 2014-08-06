@@ -4,8 +4,10 @@ define([], function() {
   return {
     SERVER: 'http://54.210.140.62',
     SERVER_PORT: '3000',
-    BUILD_STARTED: 'STARTED',
-    BUILD_COMPLETED: 'COMPLETED',
-    BUILD_FINALIZED: 'FINALIZED'
+
+    //XXX These should be placed in a separate file
+    SOCKET_BUILD_STARTED: 'STARTED',
+    SOCKET_BUILD_COMPLETED: 'COMPLETED',
+    SOCKET_BUILD_FINALIZED: 'FINALIZED'
   }
 });
