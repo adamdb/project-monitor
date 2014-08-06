@@ -6,7 +6,7 @@ define([
   'backbone',
   'collections/projects',
   'text!list/template.html',
-  './events'
+  '../events'
 ], function($, _, Backbone, ProjectCollection, template, events) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
