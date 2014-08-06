@@ -6,7 +6,7 @@ define([
 ], function(_, Backbone) {
   var Model = Backbone.Model.extend({
     defaults: {
-      name: 'Empty'
+      name: 'Empty',
       url: '',
       buildNumber: 0,
       branch: '',
