@@ -15,8 +15,9 @@ define([
     },
 
     parse: function parse(res) {
-      console.log('have data=' + res.data);
-      return res.data;
+      var data = res.toJSON();
+      console.log('have data=' + data.projects);
+      return data.projects;
     }
   });
 
