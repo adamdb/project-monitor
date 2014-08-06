@@ -17,7 +17,7 @@ define([
     parse: function parse(res) {
       console.log('have data=' + res.data);
       return res.data;
-    };
+    }
   });
 
   return Collection;
