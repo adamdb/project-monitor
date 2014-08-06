@@ -6,7 +6,7 @@ define(['socketioclient', './models/model', './events'], function(io, model, eve
       console.log('connected');
     
       socket.on(model.BUILD_STARTED, function(data) {
-        events.trigger('build-started', data);
+        events.listener.trigger('build-started', data);
       });
 
       socket.on(model.BUILD_COMPLETED, function(data) {

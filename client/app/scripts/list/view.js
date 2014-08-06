@@ -30,7 +30,7 @@ define([
         that.addProject($projectNameInput.val());
       });
 
-      events.on('build-started', function(msg) {
+      events.listener.on('build-started', function(msg) {
         console.log('BUILD STARTED: ' + msg);
       });
     },
