@@ -7,6 +7,7 @@ define(['socketioclient', './models/model', './EventListener', './events'], func
       console.log('connected');
     
       socket.on(model.SOCKET_BUILD_STARTED, function(data) {
+        console.log('STARTED');
         listener.trigger(events.BUILD_STARTED, data);
       });
 
