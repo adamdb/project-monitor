@@ -6,8 +6,8 @@ define([
   'backbone',
   'collections/projects',
   'text!list/template.html',
-  '../events'
-], function($, _, Backbone, ProjectCollection, template, events) {
+  '../Events'
+], function($, _, Backbone, ProjectCollection, template, Events) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
     $newProjectButton: $('#new-project-btn'),
@@ -30,6 +30,7 @@ define([
         that.addProject($projectNameInput.val());
       });
 
+      var events = new Events();
       events.listener.on('build-started', function(msg) {
         console.log('BUILD STARTED: ' + msg);
       });
