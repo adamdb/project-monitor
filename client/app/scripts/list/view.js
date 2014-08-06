@@ -39,6 +39,9 @@ define([
       this.$newProjectModal.modal('hide');
     },
 
+    updateProject: function() {
+    },
+
     render: function() {
       var compiledTemplate = _.template(template, {projects: this.collection.models});
       this.$el.html(compiledTemplate);
