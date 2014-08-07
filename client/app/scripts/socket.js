@@ -1,4 +1,4 @@
-define(['socketioclient', './models/model', './EventListener', './events'], function(io, model, EventListener, events) { 
+define(['socketioclient', './models/model', './EventListener'], function(io, model, EventListener) { 
   var Socket = function(server) {
     var socket = io(server),
         listener = new EventListener();

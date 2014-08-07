@@ -6,9 +6,8 @@ define([
   'backbone',
   'collections/projects',
   'text!list/template.html',
-  '../EventListener',
-  '../events'
-], function($, _, Backbone, ProjectCollection, template, EventListener, events) {
+  '../EventListener'
+], function($, _, Backbone, ProjectCollection, template, EventListener) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
     $newProjectButton: $('#new-project-btn'),
@@ -32,18 +31,13 @@ define([
         that.addProject($projectNameInput.val());
       });
 
-      listener.dispatcher.on(listener.BUILD_STARTED, function(msg) {
-        console.log('build started');
-        //TODO Animate the card
+      listener.dispatcher.on(listener.BUILD_STARTED, function(project) {
       });
 
-      listener.dispatcher.on(listener.BUILD_COMPLETED, function(msg) {
-        console.log('build completed');
+      listener.dispatcher.on(listener.BUILD_COMPLETED, function(project) {
       });
 
-      listener.dispatcher.on(listener.BUILD_FINALIZED, function(msg) {
-        console.log('build finalized');
-        //TODO Stop animating the card
+      listener.dispatcher.on(listener.BUILD_FINALIZED, function(project) {
       });
     },
 

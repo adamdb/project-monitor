@@ -14,6 +14,7 @@ define([
     Backbone.history.start();
 
     var socket = new Socket(appModel.SERVER + ':' + appModel.SERVER_PORT);
+    //var socket = new Socket('http://ci.digitaslbi.com:3000');
   }
 
   return {

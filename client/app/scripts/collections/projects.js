@@ -5,9 +5,9 @@ define([
   'backbone',
   'models/project',
   'models/model'
-], function(_, Backbone, ProjectModel) {
+], function(_, Backbone, ProjectModel, appModel) {
   var Collection = Backbone.Collection.extend({
-    url: '/projects',
+    url: appModel.SERVER + ':' + appModel.SERVER_PORT + '/projects',
     model: ProjectModel,
     
     initialize: function initialize() {
