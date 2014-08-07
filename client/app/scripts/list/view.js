@@ -32,16 +32,16 @@ define([
         that.addProject($projectNameInput.val());
       });
 
-      listener.on(events.BUILD_STARTED, function(msg) {
+      listener.dispatcher.on(listener.BUILD_STARTED, function(msg) {
         console.log('build started');
         //TODO Animate the card
       });
 
-      listener.on(events.BUILD_COMPLETED, function(msg) {
+      listener.dispatcher.on(listener.BUILD_COMPLETED, function(msg) {
         console.log('build completed');
       });
 
-      listener.on(events.BUILD_FINALIZED, function(msg) {
+      listener.dispatcher.on(listener.BUILD_FINALIZED, function(msg) {
         console.log('build finalized');
         //TODO Stop animating the card
       });

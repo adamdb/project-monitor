@@ -2,7 +2,16 @@
 
 define(['backbone', 'underscore'], function(Backbone, _) {
   var EventListener = _.once(function() {
-    _.extend(this, Backbone.Events);
+    var dispatcher = {};
+    
+    _.extend(dispatcher, Backbone.Events);
+
+    return {
+      dispatcher: dispatcher,
+      BUILD_STARTED: 'build-started',
+      BUILD_COMPLETED: 'build-completed',
+      BUILD_FINALIZED: 'build-finalized'
+    };
   });
   
   return EventListener;
