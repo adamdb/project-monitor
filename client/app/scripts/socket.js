@@ -5,15 +5,21 @@ define(['socketioclient', './models/model', './EventListener'], function(io, mod
 
     socket.on('connect', function() {
       socket.on(model.SOCKET_BUILD_STARTED, function(data) {
-        listener.dispatcher.trigger(listener.BUILD_STARTED, data);
+        var obj = JSON.parse(data);
+        
+        listener.dispatcher.trigger(listener.BUILD_STARTED, obj);
       });
 
       socket.on(model.SOCKET_BUILD_COMPLETED, function(data) {
-        listener.dispatcher.trigger(listener.BUILD_COMPLETED, data);
+        var obj = JSON.parse(data);
+        
+        listener.dispatcher.trigger(listener.BUILD_COMPLETED, obj);
       });
 
       socket.on(model.SOCKET_BUILD_FINALIZED, function(data) {
-        listener.dispatcher.trigger(listener.BUILD_FINALIZED, data);
+        var obj = JSON.parse(data);
+        
+        listener.dispatcher.trigger(listener.BUILD_FINALIZED, obj);
       });
     });
   }

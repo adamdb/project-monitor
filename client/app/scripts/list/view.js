@@ -32,9 +32,11 @@ define([
       });
 
       listener.dispatcher.on(listener.BUILD_STARTED, function(project) {
+        $(('#' + project.name)).addClass('animate-flicker');
       });
 
       listener.dispatcher.on(listener.BUILD_COMPLETED, function(project) {
+        $(('#' + project.name)).removeClass('animate-flicker');
       });
 
       listener.dispatcher.on(listener.BUILD_FINALIZED, function(project) {
