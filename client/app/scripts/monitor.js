@@ -6,15 +6,19 @@ define([
   'backbone',
   './routes',
   './socket',
-  './models/model'
-], function($, _, Backbone, routes, Socket, appModel, ProjectCollection) {
+  './models/model',
+  './collections/projects',
+  './util/namespace'
+], function($, _, Backbone, routes, Socket, appModel, ProjectCollection, namespace) {
 
   function initialize() {
+    monitor.namespace('collections.projectCollection'); 
+    monitor.collections.projectCollection = new ProjectCollection();
+    
     routes.initialize(); 
     Backbone.history.start();
 
-    var socket = new Socket(appModel.SERVER + ':' + appModel.SERVER_PORT);
-    //var socket = new Socket('http://ci.digitaslbi.com:3000');
+    var socket = new Socket(monitor.model.SERVER + ':' + monitor.model.SERVER_PORT);
   }
 
   return {

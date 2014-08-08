@@ -17,6 +17,6 @@ require.config({
   }
 });
 
-require(['monitor', 'bootstrap'], function(m) {
-  m.initialize();
+require(['monitor', 'bootstrap', './util/namespace'], function(monitor) {
+  monitor.initialize();
 });

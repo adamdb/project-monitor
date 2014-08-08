@@ -4,10 +4,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/projects',
   'text!list/template.html',
   '../EventListener'
-], function($, _, Backbone, ProjectCollection, template, EventListener) {
+], function($, _, Backbone, template, EventListener) {
   var View = Backbone.View.extend({
     el: $('#project-list'),
     $newProjectButton: $('#new-project-btn'),
@@ -19,8 +18,8 @@ define([
       var that = this,
           listener = new EventListener();
       
-      this.collection = new ProjectCollection();
-      this.listenTo(this.collection, 'add remove', this.render);
+      this.collection = monitor.collections.projectCollection;
+      this.listenTo(this.collection, 'add remove change', this.render);
       
       this.$newProjectButton.click(function() {
         that.displayModal();
@@ -28,18 +27,24 @@ define([
 
       this.$addProjectButton.click(function() {
         var $projectNameInput = $('#project-name-input');
+        
         that.addProject($projectNameInput.val());
       });
 
       listener.dispatcher.on(listener.BUILD_STARTED, function(project) {
-        $(('#' + project.name)).addClass('animate-flicker');
+        var id = project.name.replace('.', '\\.').replace('#', '\\#'); 
+        
+        $(('#' + id)).addClass('animate-flicker');
       });
 
       listener.dispatcher.on(listener.BUILD_COMPLETED, function(project) {
-        $(('#' + project.name)).removeClass('animate-flicker');
+        var id = project.name.replace('.', '\\.').replace('#', '\\#');
+
+        $(('#' + id)).removeClass('animate-flicker');
       });
 
       listener.dispatcher.on(listener.BUILD_FINALIZED, function(project) {
+        var id = project.name.replace('.', '\\.').replace('#', '\\#');
       });
     },
 
