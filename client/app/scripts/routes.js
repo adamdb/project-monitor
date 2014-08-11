@@ -13,7 +13,6 @@ define([
     var Router = Backbone.Router.extend({
       routes: {
         '': 'list',
-        'new': 'new',
         'edit/:name': 'edit'
       }
     });
@@ -24,19 +23,14 @@ define([
       displayList();
     });
 
-    router.on('route:new', function(actions) {
-      //TODO Show the modal
-    });
-
     router.on('route:edit', function(name) {
       displayList();
         
-      //Wait until we have data before editing a project's information
       var that = this;
 
+      //Wait until we have data before editing a project's information      
       this.listenTo(projectList.collection, 'sync', function() {
-        //var project = monitor.collections.projectCollection.findWhere({'name': name});
-        //console.log(project.get('name'));
+        console.log(name);
         that.stopListening(projectList.collection);
       });
     });
