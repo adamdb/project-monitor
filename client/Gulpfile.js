@@ -13,7 +13,7 @@ var express = require('express'),
     refresh = require('gulp-livereload'),
     livereload = require('connect-livereload'),
     livereloadport = 35729,
-    serverport = 5000;
+    serverport = 8000;
 
 // Set up an express server (not starting it yet)
 var server = express();
@@ -27,7 +27,7 @@ server.all('/*', function(req, res) {
 });
 
 // Dev task
-gulp.task('dev', ['clean', 'views', 'styles', 'lint', 'browserify'], function() { });
+gulp.task('build', ['clean', 'views', 'styles', 'lint', 'browserify'], function() { });
 
 // Clean task
 gulp.task('clean', function() {
@@ -104,4 +104,4 @@ gulp.task('watch', ['lint'], function() {
 
 });
 
-gulp.task('default', ['dev', 'watch']);
+gulp.task('default', ['build', 'watch']);
