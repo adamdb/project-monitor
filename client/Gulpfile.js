@@ -37,7 +37,7 @@ gulp.task('clean', function() {
 
 // JSHint task
 gulp.task('lint', function() {
-  gulp.src('app/scripts/*.js')
+  gulp.src('app/**/*.js')
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
@@ -56,7 +56,7 @@ gulp.task('styles', function() {
 // Browserify task
 gulp.task('browserify', function() {
   // Single point of entry (make sure not to src ALL your files, browserify will figure it out)
-  gulp.src(['app/scripts/main.js'])
+  gulp.src(['app/projectmonitor.js'])
   .pipe(browserify({
     insertGlobals: true,
     debug: false
@@ -87,7 +87,7 @@ gulp.task('watch', ['lint'], function() {
   refresh.listen(livereloadport);
 
   // Watch our scripts, and when they change run lint and browserify
-  gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'],[
+  gulp.watch(['app/*.js', 'app/**/*.js'],[
     'lint',
     'browserify'
   ]);
