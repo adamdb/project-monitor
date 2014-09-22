@@ -1,3 +1,13 @@
 'use strict';
 
-var angular = require('angular');
+var projectSummary = function() {
+  return {
+    restrict: 'A',
+    replace: true,
+    transclude: true,
+    scope: true,
+    templateUrl: 'views/projectSummary.html'
+  };
+};
+
+module.exports = projectSummary;

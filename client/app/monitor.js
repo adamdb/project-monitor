@@ -2,9 +2,20 @@
 
 var angular = require('angular');
 
-var ListController = require('./list/ListController');
-
 var app = angular.module('project-monitor', []);
-app.controller('ListController', ['$scope', ListController]);
 
-app.directive('listItem', listItem);
+//Controllers
+var ListCtrl = require('./list/controllers/ListCtrl');
+
+app.controller('ListCtrl', ['$scope', 'Projects', ListCtrl]);
+
+//Directives
+var projectSummary = require('./list/directives/projectSummary');
+
+app.directive('projectSummary', projectSummary);
+
+
+//Services
+var Projects = require('./list/services/Projects');
+
+app.service('Projects', ['$http', '$q', Projects]);

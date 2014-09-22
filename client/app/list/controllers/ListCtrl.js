@@ -1,7 +1,9 @@
 'use strict';
 
-var ListController = function($scope) {
-  $scope.testVar = 'We are up and running from a required module!';
+var ListCtrl = function($scope, Projects) {
+  Projects.list().then(function(response) {
+    $scope.projects = response;
+  });
 };
 
-module.exports = ListController;
+module.exports = ListCtrl;

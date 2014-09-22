@@ -56,7 +56,7 @@ gulp.task('styles', function() {
 // Browserify task
 gulp.task('browserify', function() {
   // Single point of entry (make sure not to src ALL your files, browserify will figure it out)
-  gulp.src(['app/projectmonitor.js'])
+  gulp.src(['app/monitor.js'])
   .pipe(browserify({
     insertGlobals: true,
     debug: false
@@ -75,7 +75,7 @@ gulp.task('views', function() {
   .pipe(gulp.dest('dist/'));
 
   // Any other view files from app/views
-  gulp.src('app/views/**/*')
+  gulp.src('partials/**/*')
   // Will be put in the dist/views folder
   .pipe(gulp.dest('dist/views/'));
 });
@@ -96,7 +96,7 @@ gulp.task('watch', ['lint'], function() {
     'styles'
   ]);
 
-  gulp.watch(['app/**/*.html'], [
+  gulp.watch(['app/*.html', 'partials/**/*.html'], [
     'views'
   ]);
 
