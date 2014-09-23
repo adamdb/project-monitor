@@ -1,9 +1,24 @@
 <ul id="dashboard">
   <li class="project" ng-repeat="project in projects">
-    <div class="status">
+    <div class="project-status">
       <h1 class="code">{{project.name}}</h1>
     </div>
     <div class="builds">
+      <span class="last-build">{{project.lastBuild}}</span>
+      <ul class="build-statuses">
+        <!--li class="build-status"><span class="success">&#149;<span></li>
+        <li class="build-status"><span class="failed">&#10006;<span></li-->
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+      </ul>
     </div>
   </li>
 </ul>
