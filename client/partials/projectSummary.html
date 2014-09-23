@@ -1,23 +1,23 @@
 <ul id="dashboard">
-  <li class="project" ng-repeat="project in projects">
+  <li class="project good-top build-animation" ng-repeat="project in projects">
     <div class="project-status">
       <h1 class="code">{{project.name}}</h1>
     </div>
-    <div class="builds">
+    <div class="builds good-bottom">
       <span class="last-build">{{project.lastBuild}}</span>
       <ul class="build-statuses">
         <!--li class="build-status"><span class="success">&#149;<span></li>
         <li class="build-status"><span class="failed">&#10006;<span></li-->
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[0].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[1].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[2].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[3].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[4].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[5].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[6].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[7].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[8].status}}">{{project.statusCode}}<span></li>
+        <li class="build-status"><span class="{{project.build[9].status}}">{{project.statusCode}}<span></li>
       </ul>
     </div>
   </li>

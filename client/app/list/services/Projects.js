@@ -1,8 +1,6 @@
 'use strict';
 
 var Projects = function($http, $q) {
-  var projects;
-
   function list() {
     var deferred = $q.defer();
 
