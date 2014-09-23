@@ -1,5 +1,9 @@
-<ul>
-  <li ng-repeat="project in projects">
-    <p>Name: {{project.name}}</p>
+<ul id="dashboard">
+  <li class="project" ng-repeat="project in projects">
+    <div class="status">
+      <h1 class="code">{{project.name}}</h1>
+    </div>
+    <div class="builds">
+    </div>
   </li>
 </ul>

@@ -1,0 +1,42 @@
+$font-stack: Helvetica, sans-serif;
+
+.project {
+  width: 600px;
+  float: left;
+
+  background: linear-gradient(
+    to bottom,
+    #93cdad,
+    #93cdad 90%,
+    #b6ddc7 10%,
+    #b6ddc7
+  );
+
+  background-size: 100% 10px;
+  margin: 5px;
+  border: solid;
+  border-color: #2E2E29;
+  border-width: 10px;
+
+  .status {
+    width: 100%;
+    height: 125px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h1.code {
+    font-size: 200px;
+    line-height: 0px;
+    text-transform: uppercase;
+  }
+
+  .builds {
+    width: 100%;
+    height: 75px;
+    background-color: #b6ddc7;
+    margin: 0px;
+    padding: 0px;
+  }
+}
