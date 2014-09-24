@@ -5,7 +5,17 @@ var ListCtrl = function($scope, Projects, Socket) {
     $scope.projects = response;
   });
 
-  //Socket.connect();
+  Socket.connect();
+
+  //XXX This is temporary and for testing purposes only
+  var url = prompt('Enter the job URL');
+  var code = prompt('Enter a four character code to represent the project');
+
+  if (url && code) {
+    Projects.add(url, code).then(function(response) {
+      alert('Added ' + code + ' to the project dashboard.');
+    });
+  }
 };
 
 module.exports = ListCtrl;

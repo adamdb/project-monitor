@@ -5,13 +5,24 @@ var io = require('socket.io-client');
 var Socket = function() {
   function connect() {
 
-    var socket = io('http://localhost');
+    var JENKINS_STARTED = 'STARTED';
+    var JENKINS_COMPLETED = 'COMPLETED';
+    var JENKINS_FINALIZED = 'FINALIZED';
+
+    var socket = io('http://54.165.205.58:3000');
 
     socket.on('connect', function() {
-      socket.on('test', function(data) {
+      socket.on(JENKINS_STARTED, function(data) {
         console.log(data);
       });
 
+      socket.on(JENKINS_COMPLETED, function(data) {
+        console.log(data);
+      });
+
+      socket.on(JENKINS_FINALIZED, function(data) {
+        console.log(data);
+      });
     });
   }
 
