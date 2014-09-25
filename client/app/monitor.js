@@ -4,6 +4,11 @@ var angular = require('angular');
 
 var app = angular.module('project-monitor', []);
 
+//Filters
+var lastBuilt = require('./list/filters/lastBuilt.js');
+
+app.filter('lastBuilt', lastBuilt);
+
 //Controllers
 var ListCtrl = require('./list/controllers/ListCtrl');
 

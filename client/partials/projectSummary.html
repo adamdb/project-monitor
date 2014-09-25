@@ -1,23 +1,17 @@
 <ul id="dashboard">
-  <li class="project good-top" ng-repeat="project in projects">
-    <div class="project-status">
+  <li ng-class="{goodTop: project.lastBuildStatus === 'SUCCESS',
+  brokenTop: project.lastBuildStatus === 'FAILURE'}" class="project" ng-repeat="project in projects">
+    <div class="projectStatus">
       <h1 class="code">{{project.code}}</h1>
     </div>
-    <div class="builds good-bottom">
-      <span class="last-build">{{project.lastBuild}}</span>
-      <ul class="build-statuses">
-        <!--li class="build-status"><span class="success">&#149;<span></li>
-        <li class="build-status"><span class="failed">&#10006;<span></li-->
-        <li class="build-status"><span class="{{project.build[0].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[1].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[2].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[3].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[4].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[5].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[6].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[7].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[8].status}}">{{project.statusCode}}<span></li>
-        <li class="build-status"><span class="{{project.build[9].status}}">{{project.statusCode}}<span></li>
+    <div ng-class="{goodBottom: project.lastBuildStatus === 'SUCCESS',
+    brokenBottom: project.lastBuildStatus === 'FAILURE'}" class="builds">
+      <span class="lastBuild">{{project.lastBuilt | lastBuilt}}</span>
+      <ul class="buildStatuses">
+        <li ng-repeat="build in project.builds track by $index" class="buildStatus">
+            <span ng-if="build === 'SUCCESS'" class="success">&#149;</span>
+            <span ng-if="build === 'FAILURE'" class="failed">&#10006;</span>
+        </li>
       </ul>
     </div>
   </li>
