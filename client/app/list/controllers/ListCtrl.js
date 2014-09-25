@@ -2,8 +2,6 @@
 
 var ListCtrl = function($scope, Projects, Socket) {
   Projects.list().then(function(response) {
-    console.log(response);
-
     $scope.projects = response;
   });
 

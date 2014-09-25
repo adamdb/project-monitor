@@ -1,6 +1,6 @@
 'use strict';
 
-var lastBuilt = function() {
+var toDays = function() {
   return function(input) {
     var oneDay = 24 * 60 * 60 * 1000;
     var now = new Date();
@@ -11,4 +11,4 @@ var lastBuilt = function() {
   };
 };
 
-module.exports = lastBuilt;
+module.exports = toDays;

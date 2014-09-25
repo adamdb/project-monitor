@@ -1,18 +1,20 @@
 <ul id="dashboard">
-  <li ng-class="{goodTop: project.lastBuildStatus === 'SUCCESS',
-  brokenTop: project.lastBuildStatus === 'FAILURE'}" class="project" ng-repeat="project in projects">
-    <div class="projectStatus">
-      <h1 class="code">{{project.code}}</h1>
-    </div>
-    <div ng-class="{goodBottom: project.lastBuildStatus === 'SUCCESS',
-    brokenBottom: project.lastBuildStatus === 'FAILURE'}" class="builds">
-      <span class="lastBuild">{{project.lastBuilt | lastBuilt}}</span>
-      <ul class="buildStatuses">
-        <li ng-repeat="build in project.builds track by $index" class="buildStatus">
-            <span ng-if="build === 'SUCCESS'" class="success">&#149;</span>
-            <span ng-if="build === 'FAILURE'" class="failed">&#10006;</span>
-        </li>
-      </ul>
-    </div>
-  </li>
+  <a ng-href="{{project.url}}" ng-repeat="project in projects">
+    <li ng-class="{goodTop: project.lastBuildStatus === 'SUCCESS',
+    brokenTop: project.lastBuildStatus === 'FAILURE'}" class="project">
+      <div class="projectStatus">
+        <h1 class="code">{{project.code}}</h1>
+      </div>
+      <div ng-class="{goodBottom: project.lastBuildStatus === 'SUCCESS',
+      brokenBottom: project.lastBuildStatus === 'FAILURE'}" class="builds">
+        <span class="lastBuild">{{project.lastBuilt | toDays}}</span>
+        <ul class="buildStatuses">
+          <li ng-repeat="build in project.builds track by $index" class="buildStatus">
+              <span ng-if="build === 'SUCCESS'" class="success">&#149;</span>
+              <span ng-if="build === 'FAILURE'" class="failed">&#10006;</span>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </a>
 </ul>
