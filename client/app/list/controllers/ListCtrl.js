@@ -8,30 +8,34 @@ var ListCtrl = function($scope, Projects, Socket) {
   Socket.connect();
 
   $scope.$on('STARTED', function(event, data) {
-    var projects = $scope.projects;
     var json = JSON.parse(data);
 
-    for (var project in projects) {
-      if (projects[project].name === json.name) {
-        $scope.$apply(function () {
-          $scope.projects[project].isBuilding = 'true';
-        });
-      }
-    }
+    animate('true', json);
   });
 
   $scope.$on('FINALIZED', function(event, data) {
-    var projects = $scope.projects;
     var json = JSON.parse(data);
+
+    animate('false', json);
+  });
+
+  function animate(start, json) {
+    var projects = $scope.projects;
 
     for (var project in projects) {
       if (projects[project].name === json.name) {
-        $scope.$apply(function() {
-          $scope.projects[project].isBuilding = 'false';
-        });
+        if (projects[project].name === json.name) {
+          toggleAnimation(project, start);
+        }
       }
     }
-  });
+  }
+
+  function toggleAnimation(project, isBuilding) {
+    $scope.$apply(function() {
+      $scope.projects[project].isBuilding = isBuilding;
+    });
+  }
 };
 
 module.exports = ListCtrl;
