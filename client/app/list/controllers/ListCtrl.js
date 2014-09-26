@@ -7,13 +7,13 @@ var ListCtrl = function($scope, Projects, Socket) {
 
   Socket.connect();
 
-  $scope.$on('STARTED', function(event, data) {
+  $scope.$on(Socket.JENKINS_STARTED, function(event, data) {
     var json = JSON.parse(data);
 
     animate('true', json);
   });
 
-  $scope.$on('FINALIZED', function(event, data) {
+  $scope.$on(Socket.JENKINS_FINALIZED, function(event, data) {
     var json = JSON.parse(data);
 
     animate('false', json);

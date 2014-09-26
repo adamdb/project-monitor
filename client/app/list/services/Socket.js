@@ -3,11 +3,11 @@
 var io = require('socket.io-client');
 
 var Socket = function($rootScope) {
-  function connect() {
-    var JENKINS_STARTED = 'STARTED';
-    var JENKINS_COMPLETED = 'COMPLETED';
-    var JENKINS_FINALIZED = 'FINALIZED';
+  var JENKINS_STARTED = 'STARTED';
+  var JENKINS_COMPLETED = 'COMPLETED';
+  var JENKINS_FINALIZED = 'FINALIZED';
 
+  function connect() {
     var socket = io('http://54.165.205.58:3000');
 
     socket.on('connect', function() {
@@ -26,7 +26,10 @@ var Socket = function($rootScope) {
   }
 
   return {
-    connect: connect
+    connect: connect,
+    JENKINS_STARTED: JENKINS_STARTED,
+    JENKINS_COMPLETED: JENKINS_COMPLETED,
+    JENKINS_FINALIZED: JENKINS_FINALIZED
   };
 };
 
