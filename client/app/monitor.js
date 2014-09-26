@@ -25,4 +25,4 @@ var Projects = require('./list/services/Projects');
 var Socket = require('./list/services/Socket');
 
 app.service('Projects', ['$http', '$q', Projects]);
-app.service('Socket', [Socket]);
+app.service('Socket', ['$rootScope', Socket]);

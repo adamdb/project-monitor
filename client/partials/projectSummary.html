@@ -1,7 +1,8 @@
 <ul id="dashboard">
   <a ng-href="{{project.url}}" ng-repeat="project in projects">
     <li ng-class="{goodTop: project.lastBuildStatus === 'SUCCESS',
-    brokenTop: project.lastBuildStatus === 'FAILURE'}" class="project">
+    brokenTop: project.lastBuildStatus === 'FAILURE',
+    animateFlicker: project.isBuilding === 'true'}" class="project">
       <div class="projectStatus">
         <h1 class="code">{{project.code}}</h1>
       </div>
