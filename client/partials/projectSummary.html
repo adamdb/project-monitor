@@ -1,5 +1,5 @@
 <ul id="dashboard">
-  <a ng-href="{{project.url}}" ng-repeat="project in projects">
+  <a draggable="true" ng-href="{{project.url}}" ng-repeat="project in projects">
     <li ng-class="{goodTop: project.lastBuildStatus === 'SUCCESS',
     brokenTop: project.lastBuildStatus === 'FAILURE',
     animateFlicker: project.isBuilding === 'true'}" class="project">
