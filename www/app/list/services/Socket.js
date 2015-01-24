@@ -8,7 +8,7 @@ var Socket = function($rootScope) {
   var JENKINS_FINALIZED = 'FINALIZED';
 
   function connect() {
-    var socket = io('http://54.165.205.58:3000');
+    var socket = io('http://localhost:8001');
 
     socket.on('connect', function() {
       socket.on(JENKINS_STARTED, function(data) {

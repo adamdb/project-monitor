@@ -6,7 +6,7 @@ var Projects = function($http, $q) {
 
     $http({
       method: 'GET',
-      url: '//54.165.205.58:3000/api/projects'
+      url: '//localhost:8001/api/projects'
     })
     .success(function(data) {
       deferred.resolve(data);
@@ -23,7 +23,7 @@ var Projects = function($http, $q) {
 
     $http({
       method: 'POST',
-      url: '//54.165.205.58:3000/api/projects',
+      url: '//localhost:8001/api/projects',
       data: {
         url: url,
         code: code
