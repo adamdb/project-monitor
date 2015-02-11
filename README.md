@@ -20,7 +20,7 @@ docker build -t <docker container name> .
 ### Step 3
 Run the container by issuing the following from a command prompt:
 ```
-docker run  -p 5001:5001 -d <docker container name>
+docker run -p 5001:5001 -d <docker container name>
 ```
 ### Step 4
 Check to make sure that the container is running, and issue the following from a command prompt:
